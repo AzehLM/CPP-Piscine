@@ -9,8 +9,8 @@ DEPS		:= $(OBJS:.o=.d)
 # ********** FLAGS AND COMPILATION FLAGS ************************************* #
 
 CXX			:= c++
-CFLAGS		:= -Wall -Wextra -Werror -std=c++98
-CPPFLAGS	:= -MMD -MP
+CFLAGS		:= -Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAGS	:= -MMD -MP -I incs/
 
 RM			:= rm -f
 RMDIR		:= rm -rf
@@ -54,6 +54,3 @@ RED_BOLD			:= \033[1;31m
 CYAN				:= \033[0;36m
 
 -include $(DEPS)
-
-
-

@@ -9,6 +9,8 @@
 
 SRCSDIR	:= srcs/
 
-MAIN	:= main
+MAIN	:= \
+	main \
+	Fixed \
 
 SRCS	:= $(addprefix $(SRCSDIR), $(addsuffix .cpp, $(MAIN)))

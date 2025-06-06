@@ -24,6 +24,7 @@ Fixed::Fixed(Fixed& classCopyName)
 Fixed&	Fixed::operator=(Fixed& classCopyName)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
+
 	this->setRawBits(classCopyName.getRawBits());
 	return (*this);
 }

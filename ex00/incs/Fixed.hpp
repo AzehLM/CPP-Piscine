@@ -10,10 +10,10 @@ class	Fixed
 
 		public:
 			Fixed(void);
+			Fixed(Fixed& classCopyName);
 			~Fixed(void);
 
-			// Fixed(Fixed); // Copy constructor
-			// copy assignment operator overload (syntax ?)
+			Fixed operator=(Fixed classCopyName);
 
 			int		getRawBits(void) const;
 			void	setRawBits(int const raw);

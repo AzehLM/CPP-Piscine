@@ -3,18 +3,19 @@ NAME		:= fixed_point
 include sources.mk
 
 BUILD_DIR	:= .build/
-OBJS 		:= $(patsubst $(SRCSDIR)%.cpp,$(BUILD_DIR)%.o,$(SRCS))
+OBJS 		:= $(patsubst %.cpp,$(BUILD_DIR)%.o,$(SRCS))
 DEPS		:= $(OBJS:.o=.d)
 
-# ********** FLAGS AND COMPILATION FLAGS ************************************* #
+# ********** FLAGS - COMPILATION FLAGS - OPTIONS ***************************** #
 
 CXX			:= c++
 CFLAGS		:= -Wall -Wextra -Werror -std=c++98 -g3
 CPPFLAGS	:= -MMD -MP -I incs/
 
 RM			:= rm -f
-RMDIR		:= rm -rf
+RMDIR		:= -r
 MAKEFLAGS	+= --no-print-directory
+DIR_DUP		:= mkdir -p $(BUILD_DIR)
 
 .DEFAULT_GOAL	:= all
 
@@ -23,14 +24,14 @@ MAKEFLAGS	+= --no-print-directory
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CXX) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME): Makefile $(OBJS)
+	@$(CXX) $(CFLAGS) $(CPPFLAGS) -o $(NAME) $(OBJS)
 	@echo "\n$(GREEN_BOLD)✓ $(NAME) is ready$(RESETC)"
 
-$(BUILD_DIR)%.o: $(SRCSDIR)%.cpp
+$(BUILD_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@echo "$(CYAN)[Compiling]$(RESETC) $<"
-	@$(CXX) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	@$(CXX) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
@@ -39,8 +40,7 @@ clean:
 
 .PHONY: fclean
 fclean: clean
-	@$(RM) $(NAME)
-	@$(RMDIR) $(BUILD_DIR)
+	@$(RM) $(RMDIR) $(NAME) $(BUILD_DIR)
 	@echo "$(RED_BOLD)✓ $(NAME) is fully cleaned!$(RESETC)"
 
 .PHONY: re
@@ -49,6 +49,7 @@ re: fclean all
 # ********** COLORS AND BACKGROUND COLORS ************************************ #
 
 RESETC				:=	\033[0m
+
 GREEN_BOLD			:= \033[1;32m
 RED_BOLD			:= \033[1;31m
 CYAN				:= \033[0;36m

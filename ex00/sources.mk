@@ -1,16 +1,8 @@
-# override SRCSDIR	:= srcs/
-# override SRCS		:= $(addprefix $(SRCSDIR), $(SRC))
+override SRCSDIR	:= srcs/
+override SRCS		= $(addprefix $(SRCSDIR), $(SRC))
 
-# SRC		+= $(addsuffix .cpp, $(MAIN))
+SRC	+= $(addsuffix .cpp, $(MAIN))
 
-# override MAIN		:= \
-# 	main \
-
-
-SRCSDIR	:= srcs/
-
-MAIN	:= \
-	main \
+override MAIN			:= \
 	Fixed \
-
-SRCS	:= $(addprefix $(SRCSDIR), $(addsuffix .cpp, $(MAIN)))
+	main

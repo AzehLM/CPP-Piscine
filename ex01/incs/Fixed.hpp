@@ -9,16 +9,19 @@ class	Fixed
 
 		public:
 			Fixed(void);
-			Fixed(Fixed& classCopyName);
+			Fixed(const Fixed& classCopyName);
 			Fixed(const int number);
 			Fixed(const float number);
 
 			~Fixed(void);
 
-			Fixed& operator=(Fixed& classCopyName);
+			Fixed& operator=(const Fixed& classCopyName);
 
 			int		getRawBits(void) const;
 			void	setRawBits(int const raw);
+
+			float	toFloat(void) const;
+			int		toInt(void) const;
 };
 
 #endif

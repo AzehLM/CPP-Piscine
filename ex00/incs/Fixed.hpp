@@ -9,10 +9,11 @@ class	Fixed
 
 		public:
 			Fixed(void);
-			Fixed(Fixed& classCopyName);
+			Fixed(const Fixed& classCopyName);
+
 			~Fixed(void);
 
-			Fixed& operator=(Fixed& classCopyName);
+			Fixed&	operator=(const Fixed& classCopyName);
 
 			int		getRawBits(void) const;
 			void	setRawBits(int const raw);

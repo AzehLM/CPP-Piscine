@@ -14,14 +14,14 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed& classCopyName)
+Fixed::Fixed(const Fixed& classCopyName)
 {
 	std::cout << "Copy constructor called" << std::endl;
 
-	*this = classCopyName;
+	_fixedPointValue = classCopyName.getRawBits();
 }
 
-Fixed&	Fixed::operator=(Fixed& classCopyName)
+Fixed&	Fixed::operator=(const Fixed& classCopyName)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 

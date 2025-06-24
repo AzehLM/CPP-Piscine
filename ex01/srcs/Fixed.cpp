@@ -40,6 +40,14 @@ Fixed::Fixed(const float number)
 
 
 
+Fixed&	Fixed::operator=(const Fixed& classCopyName)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+
+	this->setRawBits(classCopyName.getRawBits());
+
+	return (*this);
+}
 
 
 
@@ -55,6 +63,8 @@ void	Fixed::setRawBits(int const raw)
 	this->_fixedPointValue = raw;
 }
 
+
+
 float	Fixed::toFloat(void) const
 {
 	return ((float) this->_fixedPointValue / (1 << this->_fractionalBits));
@@ -65,18 +75,11 @@ int	Fixed::toInt(void) const
 	return (this->_fixedPointValue >> this->_fractionalBits);
 }
 
+
+
 std::ostream& operator<<(std::ostream& outStream, const Fixed& className)
 {
 	outStream << className.toFloat();
 
 	return (outStream);
-}
-
-Fixed&	Fixed::operator=(const Fixed& classCopyName)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-
-	this->setRawBits(classCopyName.getRawBits());
-
-	return (*this);
 }

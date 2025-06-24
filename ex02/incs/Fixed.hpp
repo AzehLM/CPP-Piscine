@@ -1,12 +1,14 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-# define BLUE		"\001\033[1;34m\002"
-# define CYAN		"\001\033[1;36m\002"
-# define GREEN		"\001\033[1;32m\002"
-# define RED		"\001\033[0;31m\002"
+#define BLUE	"\033[34m"
+#define GREEN	"\033[32m"
+#define RED		"\033[31m"
+#define YELLOW	"\033[33m"
+#define MAGENTA	"\033[35m"
+#define CYAN	"\033[36m"
 
-# define RESET      "\001\033[0m\002"
+#define RESET	"\033[0m"
 
 class	Fixed
 {

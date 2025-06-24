@@ -1,4 +1,7 @@
+
+
 #include <iostream>
+#include <climits>
 
 #include "Fixed.hpp"
 
@@ -67,9 +70,9 @@ int main(void)
 	std::cout << "\t" << GREEN "d - a = " << d - a << RESET << std::endl;
 	std::cout << "\t" << GREEN "a * d = " << a * d << RESET << std::endl;
 	std::cout << "\t" << GREEN "d * a = " << d * a << RESET << std::endl;
-	std::cout << "\t" << RED "d * (d - a) = " << d * (d - a) << RESET << std::endl;
-	std::cout << "\t" << RED "a / Fixed(2.0f) = " << a / Fixed(2.0f) << RESET << std::endl;
-	std::cout << "\t" << RED "a / Fixed(2.0f) * Fixed(2.0f) = " << a / Fixed(2.0f) * Fixed(2.0f) << RESET << std::endl;
+	std::cout << "\t" << GREEN "d * (d - a) = " << d * (d - a) << RESET << std::endl;
+	std::cout << "\t" << GREEN "a / Fixed(2.0f) = " << a / Fixed(2.0f) << RESET << std::endl;
+	std::cout << "\t" << GREEN "a / Fixed(2.0f) * Fixed(2.0f) = " << a / Fixed(2.0f) * Fixed(2.0f) << RESET << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "--------------------" << std::endl;
@@ -78,6 +81,85 @@ int main(void)
 	std::cout << "\t" << BLUE "b = " << b << RESET << std::endl;
 	std::cout << "\t" << GREEN "min(a, b) = " << Fixed::min(a, b) << RESET << std::endl;
 	std::cout << "\t" << GREEN "max(a, b) = " << Fixed::max(a, b) << RESET << std::endl;
+	std::cout << std::endl;
+
+
+	std::cout << "--------------------" << std::endl;
+	std::cout <<  "TEST DIVISION PAR ZÉRO:" RESET << std::endl;
+	Fixed zero(0);
+	std::cout << "\t" << BLUE "a = " << a << RESET << std::endl;
+	std::cout << "\t" << BLUE "zero = " << zero << RESET << std::endl;
+	std::cout << "\t" << RED "a / zero = " << (a / zero) << RESET << std::endl;
+
+	std::cout << "--------------------" << std::endl;
+	std::cout <<  "TEST OVERFLOW ADDITION:" RESET << std::endl;
+
+	Fixed maxVal;
+	maxVal.setRawBits(INT_MAX - 100);
+	Fixed largeVal;
+	largeVal.setRawBits(200);
+	std::cout << "\t" << BLUE "maxVal (raw: " << maxVal.getRawBits() << ") = " << maxVal << RESET << std::endl;
+	std::cout << "\t" << BLUE "largeVal (raw: " << largeVal.getRawBits() << ") = " << largeVal << RESET << std::endl;
+	std::cout << "\t" << RED "maxVal + largeVal = " << (maxVal + largeVal) << RESET << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "--------------------" << std::endl;
+	std::cout <<  "TEST OVERFLOW SOUSTRACTION:" RESET << std::endl;
+
+	Fixed minVal;
+	minVal.setRawBits(INT_MIN + 100);
+	Fixed negLargeVal;
+	negLargeVal.setRawBits(-200);
+
+	std::cout << "\t" << BLUE "minVal (raw: " << minVal.getRawBits() << ") = " << minVal << RESET << std::endl;
+	std::cout << "\t" << BLUE "negLargeVal (raw: " << negLargeVal.getRawBits() << ") = " << negLargeVal << RESET << std::endl;
+	std::cout << "\t" << RED "minVal - largeVal = " << (minVal - largeVal) << RESET << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "--------------------" << std::endl;
+	std::cout <<  "TEST OVERFLOW MULTIPLICATION:" RESET << std::endl;
+
+	Fixed bigVal1;
+	bigVal1.setRawBits(46340 << 8);
+	Fixed bigVal2;
+	bigVal2.setRawBits(46341 << 8);
+
+	std::cout << "\t" << BLUE "bigVal1 = " << bigVal1 << RESET << std::endl;
+	std::cout << "\t" << BLUE "bigVal2 = " << bigVal2 << RESET << std::endl;
+	std::cout << "\t" << RED "bigVal1 * bigVal2 = " << (bigVal1 * bigVal2) << RESET << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "--------------------" << std::endl;
+	std::cout <<  "TEST OVERFLOW DIVISION:" RESET << std::endl;
+
+	Fixed veryLargeVal;
+	veryLargeVal.setRawBits(INT_MAX);
+	Fixed verySmallVal;
+	verySmallVal.setRawBits(1);
+
+	std::cout << "\t" << BLUE "veryLargeVal (raw: " << veryLargeVal.getRawBits() << ") = " << veryLargeVal << RESET << std::endl;
+	std::cout << "\t" << BLUE "verySmallVal (raw: " << verySmallVal.getRawBits() << ") = " << verySmallVal << RESET << std::endl;
+	std::cout << "\t" << RED "veryLargeVal / verySmallVal = " << (veryLargeVal / verySmallVal) << RESET << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "--------------------" << std::endl;
+	std::cout <<  "TESTS AVEC VALEURS LIMITES:" RESET << std::endl;
+
+	Fixed maxFixed;
+	maxFixed.setRawBits(INT_MAX);
+	Fixed minFixed;
+	minFixed.setRawBits(INT_MIN);
+	Fixed one(1);
+
+	std::cout << "\t" << BLUE "maxFixed = " << maxFixed << RESET << std::endl;
+	std::cout << "\t" << BLUE "minFixed = " << minFixed << RESET << std::endl;
+	std::cout << "\t" << BLUE "one = " << one << RESET << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "\t" << RED "maxFixed + one = " << (maxFixed + one) << RESET << std::endl;
+	std::cout << "\t" << RED "minFixed - one = " << (minFixed - one) << RESET << std::endl;
+	std::cout << "\t" << RED "maxFixed * Fixed(2) = " << (maxFixed * Fixed(2)) << RESET << std::endl;
+	std::cout << "\t" << RED "minFixed / Fixed(0.5f) = " << (minFixed / Fixed(0.5f)) << RESET << std::endl;
 	std::cout << std::endl;
 
 

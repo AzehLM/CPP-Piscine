@@ -118,7 +118,7 @@ Fixed Fixed::operator+(const Fixed& className) const
     if ((_fixedPointValue > 0 && className.getRawBits() > INT_MAX - _fixedPointValue) ||
         (_fixedPointValue < 0 && className.getRawBits() < INT_MIN - _fixedPointValue))
 	{
-        std::cout << "Overflow detected in addition" << std::endl;
+        std::cout << "Overflow detected in addition, return: ";
         return Fixed(0);
     }
 
@@ -133,7 +133,7 @@ Fixed	Fixed::operator-(const Fixed& className) const
     if ((_fixedPointValue > 0 && className.getRawBits() < _fixedPointValue - INT_MAX) ||
         (_fixedPointValue < 0 && className.getRawBits() > _fixedPointValue - INT_MIN))
 	{
-        std::cout << "Overflow detected in subtraction" << std::endl;
+        std::cout << "Overflow detected in subtraction, return: ";
         return Fixed(0);
     }
 
@@ -151,7 +151,7 @@ Fixed	Fixed::operator*(const Fixed& className) const
 
 	if (resChecked > INT_MAX || resChecked < INT_MIN)
 	{
-		std::cout << "Overflow detected in multiplication" << std::endl;
+		std::cout << "Overflow detected in multiplication, return: ";
 		return (Fixed(0));
 	}
 	Fixed ret;
@@ -165,7 +165,7 @@ Fixed	Fixed::operator/(const Fixed& className) const
 
 	if (className.getRawBits() == 0)
 	{
-		std::cout << "Division by 0 is impossible." << std::endl;
+		std::cout << "Division by 0 is impossible, return: ";
         return (Fixed(0));
     }
 
@@ -174,7 +174,7 @@ Fixed	Fixed::operator/(const Fixed& className) const
 	resChecked = (((long)this->getRawBits() << _fractionalBits) / className.getRawBits());
 	if (resChecked > INT_MAX || resChecked < INT_MIN)
 	{
-		std::cout << "Overflow detected in division" << std::endl;
+		std::cout << "Overflow detected in division, return: ";
 		return (Fixed(0));
 	}
 

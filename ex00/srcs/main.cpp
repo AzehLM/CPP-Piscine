@@ -2,9 +2,6 @@
 
 #include "Fixed.hpp"
 
-/**
- * @brief basic subject tests for now
- */
 int	main(void)
 {
 	Fixed a;

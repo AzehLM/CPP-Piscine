@@ -1,6 +1,13 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
+# define BLUE		"\001\033[1;34m\002"
+# define CYAN		"\001\033[1;36m\002"
+# define GREEN		"\001\033[1;32m\002"
+# define RED		"\001\033[0;31m\002"
+
+# define RESET      "\001\033[0m\002"
+
 class	Fixed
 {
 	private:
@@ -33,7 +40,6 @@ class	Fixed
 			Fixed&		operator--(void);
 			Fixed		operator++(int);
 			Fixed		operator--(int);
-
 
 			static Fixed& min(Fixed& className1, Fixed& className2);
 			static const Fixed& min(const Fixed& className1, const Fixed& className2);

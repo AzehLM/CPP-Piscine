@@ -211,3 +211,31 @@ const Fixed&	Fixed::max(const Fixed& className1, const Fixed& className2)
 
 
 /* Post/Pre-incrementation */
+
+Fixed&	Fixed::operator++(void)
+{
+	_fixedPointValue++;
+	return (*this);
+}
+
+Fixed&	Fixed::operator--(void)
+{
+	_fixedPointValue--;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed res = *this;
+
+	_fixedPointValue++;
+	return (res);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed res = *this;
+
+	_fixedPointValue--;
+	return (res);
+}

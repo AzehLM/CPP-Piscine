@@ -2,7 +2,7 @@
 
 #include "Fixed.hpp"
 
-std::ostream& operator<<(std::ostream& o, const Fixed& f);
+std::ostream& operator<<(std::ostream& outStream, const Fixed& className);
 
 int main(void)
 {

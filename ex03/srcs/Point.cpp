@@ -12,6 +12,8 @@ Point::Point(const float f1, const float f2) : _x(f1), _y(f2) {}
 
 Point&	Point::operator=(const Point& copy)
 {
+	if (this != &copy) {}
+
 	return (*this);
 }
 
@@ -24,4 +26,3 @@ const Fixed	Point::getY(void) const
 {
 	return (this->_y);
 }
-

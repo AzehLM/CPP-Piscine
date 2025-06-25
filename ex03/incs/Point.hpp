@@ -19,7 +19,8 @@ class	Point
 		Point&	operator=(const Point& copy);
 
 		// setter -> getter ?
-
+		const Fixed	getX(void) const;
+		const Fixed	getY(void) const;
 };
 
 

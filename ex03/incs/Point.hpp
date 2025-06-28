@@ -23,5 +23,4 @@ class	Point
 		const Fixed	getY(void) const;
 };
 
-
 # endif

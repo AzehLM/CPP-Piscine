@@ -53,6 +53,23 @@ void	testCasePointOnEdge(void)
 		std::cout << GREEN "true: P is inside the triangle" << RESET << std::endl;
 	else
 		std::cout << RED "false: P is not inside the triangle" << RESET << std::endl;
+	std::cout << std::endl;
+}
+
+void	testCaseDegenerateTriangle(void)
+{
+	Point const	a(2, 0);
+	Point const	b(2, 5);
+	Point const	c(2, 9);
+
+	Point const	point(2, 9);
+
+	std::cout << CYAN "TEST 3: degenerate triangle" << RESET << std::endl;
+
+	if (bsp(a, b, c, point))
+		std::cout << GREEN "true: P is inside the triangle" << RESET << std::endl;
+	else
+		std::cout << RED "false: P is not inside the triangle" << RESET << std::endl;
 }
 
 int	main(void)
@@ -60,6 +77,7 @@ int	main(void)
 	testCasePointIn();
 	testCasePointVertice();
 	testCasePointOnEdge();
+	testCaseDegenerateTriangle();
 
 	return (0);
 }

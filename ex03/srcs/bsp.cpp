@@ -2,38 +2,27 @@
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-    // Calcul des différences nécessaires pour les coordonnées barycentriques
-    Fixed s1 = c.getY() - a.getY();  // C.y - A.y
-    Fixed s2 = c.getX() - a.getX();  // C.x - A.x
-    Fixed s3 = b.getY() - a.getY();  // B.y - A.y
-    Fixed s4 = point.getY() - a.getY();  // P.y - A.y
+    /* Calcul des vecteurs */
+    Fixed s1 = c.getY() - a.getY();
+    Fixed s2 = c.getX() - a.getX();
+    Fixed s3 = b.getY() - a.getY();
+    Fixed s4 = point.getY() - a.getY();
 
     Fixed denominator;
 
-    // Calcul du dénominateur pour w1
+    /* Calcul du dénominateur pour w1 -> si sa valeur est nulle on a un triangle dégénéré */
 	denominator = s3 * s2 - (b.getX() - a.getX()) * s1;
-
-	// Vérifier si le triangle est dégénéré (aire nulle)
     if (denominator == Fixed(0))
-    {
-        // Triangle dégénéré - les trois points sont colinéaires
-        return false;
-    }
+        return (false);
 
-    // Calcul de w1 (première coordonnée barycentrique)
+    /* Calcul de w1 (première coordonnée barycentrique) */
     Fixed w1 = (a.getX() * s1 + s4 * s2 - point.getX() * s1) / denominator;
 
-    // Calcul de w2 (deuxième coordonnée barycentrique)
     Fixed w2;
     if (s1 == Fixed(0))
     {
-        // Cas spécial : C.y == A.y (ligne horizontale)
-        // Utiliser une formule alternative
         if (s2 == Fixed(0))
-        {
-            // A et C sont le même point - triangle dégénéré
-            return false;
-        }
+            return (false);
         w2 = (point.getX() - a.getX() - w1 * (b.getX() - a.getX())) / s2;
     }
     else

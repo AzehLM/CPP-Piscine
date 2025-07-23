@@ -40,12 +40,15 @@
 # debug information files
 *.dwo
 
+
+# Personnal extra ignored files
 .vscode
 
 Animal
 Brain
 Abstract
 Interface
+
 test*
 *.log
 .build

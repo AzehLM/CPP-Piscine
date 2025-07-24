@@ -53,7 +53,7 @@ void	Harl::complain(std::string level)
 {
 	if (level.empty()) {
 		std::cout << "Error: empty level" << std::endl;
-        return ;
+		return ;
 	}
 
 	const std::string	_level[4] = {"DEBUG", "ERROR", "INFO", "WARNING"};

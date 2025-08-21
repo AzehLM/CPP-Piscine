@@ -3,22 +3,6 @@
 
 ### Exercise 00: Function template foundations
 
-The **`whatever.hpp`** exercise introduces basic function template syntax through three fundamental operations: `swap()`, `min()`, and `max()`. These seemingly simple functions demonstrate core template concepts including **template parameter declaration using `template<typename T>`**, **automatic type deduction**, and **implicit template instantiation**. Students learn that templates are not functions themselves but blueprints for generating type-specific functions during compilation.
-
-The exercise emphasizes that template arguments must support all required operators (comparison for `min()`/`max()`, assignment for `swap()`), introducing the concept of **implicit interface requirements**. This foundation teaches students that templates work with any type meeting specific behavioral requirements rather than inheritance-based interfaces.
-
-### Exercise 01: Advanced function templates with iteration
-
-The **`iter.hpp`** exercise advances to function templates that accept **function pointers as parameters**, demonstrating how templates can work with callable objects. The `iter()` function applies a given function to every element of an array, teaching students about **template parameter deduction with function pointers** and **generic algorithms**.
-
-This exercise bridges the gap between simple type parameterization and algorithmic thinking, showing how templates enable writing generic functions that work with different container types and operations. Students learn to think about **separation of concerns** - separating the iteration logic from the specific operation being performed.
-
-### Exercise 02: Class templates and memory management
-
-The **`Array.hpp`** exercise represents the module's culmination, requiring implementation of a fully functional templated class with **dynamic memory management**. Students must implement the **Orthodox Canonical Class Form** (Coplien form) for templates, including proper copy constructors, assignment operators, and destructors.
-
-Key challenges include **template member function implementation**, **operator overloading in template contexts**, **exception handling with templates**, and **RAII principles applied to generic classes**. The exercise demonstrates how templates interact with C++'s memory management model and teaches students to write exception-safe template code.
-
 ## Essential template concepts
 
 ### Template instantiation and compilation model

@@ -6,37 +6,17 @@
 
 Understanding how templates work requires grasping the **two-phase compilation model**. During the first phase, the compiler parses template definitions and performs syntax checking for non-dependent names. During the second phase, when the template is instantiated with specific types, dependent names are resolved and type-specific code is generated.
 
-This model explains why **template definitions must be visible at the point of instantiation**, typically requiring implementation in header files. Students learn that templates are not compiled into object code until instantiated, making them fundamentally different from regular functions or classes.
-
 ### Type deduction and template parameters
 
-**Template argument deduction** allows the compiler to automatically determine template parameters from function call arguments. The deduction follows specific rules: reference and const qualifiers are often stripped from by-value parameters, while reference parameters preserve const-ness. Understanding these rules prevents common mistakes where students expect `const int` to deduce as `const T` rather than `T`.
+**Template argument deduction** allows the compiler to automatically determine template parameters from function call arguments. The deduction follows specific rules: reference and const qualifiers are often stripped from by-value parameters, while reference parameters preserve const-ness.
 
-Students must also understand the difference between **type parameters** (`typename T` or `class T`) and **non-type parameters** (compile-time constants), and when each is appropriate. The exercises in CPP07 focus primarily on type parameters, building foundational understanding before introducing more complex parameter types in later modules.
+We must also understand the difference between **type parameters** (`typename T` or `class T`) and **non-type parameters** (compile-time constants), and when each is appropriate.
 
 ### Template specialization fundamentals
 
-While CPP07 exercises don't explicitly require template specialization, understanding the concept prepares students for advanced template usage. **Full specialization** provides completely alternative implementations for specific template arguments, while **partial specialization** (available only for class templates) allows specialization for subsets of template parameters.
+Understanding the concept of template specialization prepares for advanced template usage. **Full specialization** provides completely alternative implementations for specific template arguments, while **partial specialization** (available only for class templates) allows specialization for subsets of template parameters.
 
-Students learn that specialization enables optimization for specific types while maintaining generic interfaces, a technique extensively used in the STL. This knowledge becomes crucial when they encounter containers like `std::vector<bool>` in CPP08.
-
-## Relationship with curriculum progression
-
-### Building on CPP06 casting knowledge
-
-CPP06's focus on C++ casting mechanisms provides essential preparation for template understanding. **Type safety concepts**, **compile-time vs runtime type checking**, and **understanding type relationships** from casting exercises directly apply to template parameter deduction and instantiation.
-
-The casting module's emphasis on **when and why different conversions are safe** translates into understanding which types can be used with specific template instantiations. Students who master CPP06's type conversion principles find template type deduction more intuitive.
-
-### Preparing for CPP08 STL mastery
-
-CPP07's template foundations directly enable CPP08's exploration of **STL containers, iterators, and algorithms**. The generic programming concepts learned through simple function and class templates scale directly to understanding how `std::vector<T>`, `std::find()`, and iterator protocols work.
-
-The progression from CPP07's manual template implementation to CPP08's STL usage reinforces the practical value of template programming while teaching students to appreciate the sophistication of professionally designed template libraries.
-
-### Integration with CPP09 advanced applications
-
-CPP09's complex projects like **Ford-Johnson algorithm implementation** and **multi-container performance comparisons** rely heavily on template knowledge from CPP07. Students use templates to create generic sorting algorithms that work with different container types, demonstrating the power of generic programming in real-world applications.
+We'll learn that specialization enables optimization for specific types while maintaining generic interfaces, a technique extensively used in the STL. This knowledge becomes crucial when they encountering containers like `std::vector<bool>`.
 
 ## Critical pitfalls and debugging strategies
 
@@ -51,7 +31,7 @@ struct Example {
 };
 ```
 
-Understanding this rule prevents cryptic compiler errors and teaches students about the complexities of template name lookup.
+Understanding this rule prevents cryptic compiler errors.
 
 ### Template definition visibility requirements
 

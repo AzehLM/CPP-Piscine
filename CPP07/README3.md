@@ -345,6 +345,26 @@ public:
 };
 ```
 
+## From C++98 constraints to modern features
+
+Understanding the evolution toward modern C++ helps appreciating template programming's trajectory. **C++11's auto keyword**, **C++14's variable templates**, **C++17's template argument deduction**, and **C++20's concepts** are all build upon the fundamental principles.
+
+Modern features like **constexpr**, **perfect forwarding**, and **variadic templates** extend the basic template concepts and prepares them for professional C++ development.
+
+### Concept-driven design principles
+
+**Concept-driven thinking** helps writing better template code. Teaching how to think about **implicit interfaces** (what operations a type must support) rather than just explicit interfaces (inheritance hierarchies) prepares for advanced template programming.
+
+## Advanced template patterns preview
+
+### CRTP and static polymorphism
+
+The **Curiously Recurring Template Pattern** enables **compile-time polymorphism** without virtual function overhead. Understanding CRTP prepares for advanced design patterns used in high-performance C++ libraries.
+
+### Policy-based design
+
+**Policy-based design** allows orthogonal template parameters to control different aspects of class behavior independently. This advanced pattern demonstrates the compositional power of templates for creating flexible, reusable designs.
+
 ## Conclusion: Templates as a Foundation
 
 Templates in C++98 establish the foundation for generic programming that continues to evolve in modern C++. They provide zero-cost abstraction, enabling you to write code that's both generic and efficient. The concepts you master here - instantiation, specialization, dependent names, and implicit interfaces - remain fundamental even as the language adds new features.

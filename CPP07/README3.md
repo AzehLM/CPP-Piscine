@@ -31,16 +31,14 @@ It's crucial to distinguish between template parameters (the placeholders in you
 
 ```cpp
 template<typename T>  // T is a template parameter
-void swap(T& a, T& b) {
-    T temp = a;       // T is used as a type
-    a = b;
-    b = temp;
+T maximum(T a, T b) {
+    return (a > b) ? a : b;
 }
 
 // Usage:
 int p = 5, q = 10;
-swap(p, q);          // int is the template argument (deduced)
-swap<int>(p, q);     // int is the template argument (explicit)
+maximum(p, q);          // int is the template argument (deduced)
+maximum<int>(p, q);     // int is the template argument (explicit)
 ```
 
 ## The Two-Phase Compilation Model
@@ -352,7 +350,5 @@ public:
 Templates in C++98 establish the foundation for generic programming that continues to evolve in modern C++. They provide zero-cost abstraction, enabling you to write code that's both generic and efficient. The concepts you master here - instantiation, specialization, dependent names, and implicit interfaces - remain fundamental even as the language adds new features.
 
 Understanding templates deeply means understanding how the compiler thinks about your code. It means recognizing that templates are patterns for generating code, not code themselves. This mental model helps you write better templates, debug template errors more effectively, and design more flexible software architectures.
-
-Remember that template mastery comes through practice. Start with simple function templates, progress to class templates, and gradually incorporate more advanced techniques. Each error message teaches you something about how templates work, and each successful compilation reinforces your understanding of this powerful feature.
 
 The journey from writing your first `swap` function template to designing complex generic data structures mirrors the evolution of C++ itself - from a language with classes to one of the most powerful tools for generic programming. Your understanding of these C++98 template fundamentals provides the solid foundation needed for any advanced C++ development.

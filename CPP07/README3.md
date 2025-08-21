@@ -1,7 +1,6 @@
 # C++98 Templates: Comprehensive Learning Guide
 
-*This guide is designed to help you understand C++ template fundamentals through the lens of C++98. While it provides the knowledge needed for academic exercises like those in the 42 curriculum, it focuses on building deep understanding rather than providing specific solutions. The concepts here form the foundation of generic programming in C++.*
-
+*This guide is designed to help you understand C++ template fundamentals through the lens of C++98.
 ## Introduction: Templates as Code Generators
 
 Templates in C++ are not code themselves - they're instructions for generating code. Think of them as blueprints that the compiler uses to create actual functions or classes when you provide specific types. This happens entirely at compile time, which means you get the benefits of code reuse without any runtime performance penalty.

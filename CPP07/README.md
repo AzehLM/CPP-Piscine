@@ -1,8 +1,5 @@
 # CPP07 Templates: Complete Theoretical Guide
 
-
-### Exercise 00: Function template foundations
-
 ## Essential template concepts
 
 ### Template instantiation and compilation model

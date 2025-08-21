@@ -41,6 +41,35 @@ maximum(p, q);          // int is the template argument (deduced)
 maximum<int>(p, q);     // int is the template argument (explicit)
 ```
 
+### Template syntax and terminology
+
+```cpp
+template<typename T>        // Template parameter declaration
+//        ^^^^^^^^^
+//        Template parameter (T is a type parameter)
+
+T function_name(T param) {  // Template definition
+// ^
+// Return type uses template parameter
+    return param;
+}
+
+// Usage:
+function_name<int>(42);     // Explicit instantiation
+//            ^^^
+//            Template argument
+
+function_name(42);          // Implicit instantiation (deduction)
+```
+
+**Key terminology:**
+- **Template parameter**: The placeholder in the template definition (`T`)
+- **Template argument**: The actual type/value provided (`int`)
+- **Instantiation**: Process of generating concrete code from template
+- **Specialization**: Providing custom implementation for specific types
+
+---
+
 ## The Two-Phase Compilation Model
 
 Understanding how templates compile is essential for debugging. The compiler processes templates in two phases:

@@ -11,14 +11,14 @@ int	main(void)
 	std::cout << "stringREF:	" << &stringREF << std::endl;
 
 	std::cout << "string:		" << string << std::endl;
-	std::cout << "stringPTR:	" << stringREF << std::endl;
+	std::cout << "stringPTR:	" << *stringPTR << std::endl;
 	std::cout << "stringREF:	" << stringREF << std::endl;
 
 
 	string = "THOSE ARE BRAINZ";
 
 	std::cout << "string:		" << string << std::endl;
-	std::cout << "stringPTR:	" << stringREF << std::endl;
+	std::cout << "stringPTR:	" << *stringPTR << std::endl;
 	std::cout << "stringREF:	" << stringREF << std::endl;
 
 
